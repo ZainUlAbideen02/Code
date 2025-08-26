@@ -3,16 +3,18 @@
 using namespace std;
 
 int main(){
-    int array [] = {3,6,2,7,8,11};
-    int size = 6 ;
+    int array [] = {2,-3,-4,-2,7,8,9,-10};
+    int size = 8 ;
     int k = 3;
 
     queue<int>q1;
-    queue<int>q2;
 
-    for(int i = 0 ; i < size-2;i++){
-        for(int j = i ; j<3+i;j++){
+    for(int i = 0 ; i <= size-k;i++){
+        for(int j = i ; j<k+i;j++){
+            if(array[j]<0){
             q1.push(array[j]);
+            break;
+            }
         }
         while(!q1.empty()){
             cout<<q1.front()<<" ";
