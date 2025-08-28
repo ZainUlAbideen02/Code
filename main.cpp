@@ -1,48 +1,58 @@
 #include <iostream>
-#include <queue>
+#include<queue>
 using namespace std;
 
-class Node {
-public:
-    int data;
-    Node* left;
-    Node* right;
+class Node{
+      public:
+      int data;
+      Node * left;
+      Node * right;
 
-    Node(int val) {
-        data = val;
-        left = right = nullptr;
-    }
+      Node (int value){
+        data = value;
+        left = right = NULL;
+      }
 };
 
-int main() {
-    queue<Node*> q1;
-    Node* root = new Node(10);
-    q1.push(root);
-
-    int le = 0, ri = 0;
-
-    while (!q1.empty()) {
-        Node* curr = q1.front();
-        q1.pop();
-
-        cin >> le;
-        if (le != -1) {
-            curr->left = new Node(le);
-            cout << le << " has been added on left of " << curr->data << endl;
-            q1.push(curr->left);
-        } else {
-            cout << "Left skipped for " << curr->data << endl;
-        }
-
-        cin >> ri;
-        if (ri != -1) {
-            curr->right = new Node(ri);
-            cout << ri << " has been added on right of " << curr->data << endl;
-            q1.push(curr->right);
-        } else {
-            cout << "Right skipped for " << curr->data << endl;
-        }
+Node * BinaryTree(){
+    int x ;
+    cin>>x;
+    if(x==-1){
+        return NULL;
     }
 
-    return 0;
+    Node * temp = new Node(x);
+    temp->left = BinaryTree();
+    temp->right = BinaryTree();
+    return temp;
+}
+
+int size(Node * root){
+  Node * temp = root;
+  queue<Node * >q;
+  q.push(temp);
+  
+  int count = 1;
+
+  while (!q.empty())
+  {
+    if(q.front()->left!=NULL){
+        count++;
+        q.push(q.front()->left);
+    }
+    if(q.front()->right!=NULL){
+        count++;
+        q.push(q.front()->right);
+    }
+
+    q.pop();
+  }
+
+  return count;
+
+}
+
+int main(){
+    Node * root = BinaryTree();
+    cout<<size(root);
 }
