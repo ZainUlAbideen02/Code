@@ -2,16 +2,16 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Run main.exe (GDB)",
-            "type": "cppdbg",                          
+            "name": "Run current file (GDB)",
+            "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}\\main.exe",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
+            "cwd": "${fileDirname}",
             "externalConsole": true,
-            "MIMode": "gdb",                           
-            "miDebuggerPath": "C:\\MinGW\\bin\\gdb.exe",   // ✅ your gdb path
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\MinGW\\bin\\gdb.exe",
             "preLaunchTask": "build with g++"
         }
     ]

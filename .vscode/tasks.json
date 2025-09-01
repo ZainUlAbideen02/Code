@@ -2,11 +2,12 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build with g++",
+            "label": "build & run",
             "type": "shell",
-            "command": "g++",
+            "command": "cmd",
             "args": [
-                "-g", "main.cpp", "-o", "main.exe"
+                "/C",
+                "g++ -g ${file} -o ${fileDirname}\\build\\${fileBasenameNoExtension}.exe && ${fileDirname}\\build\\${fileBasenameNoExtension}.exe"
             ],
             "group": {
                 "kind": "build",
