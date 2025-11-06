@@ -190,38 +190,40 @@ public:
     }
 };
 
-class stack{
-    LinkedList l;
-    public:
+// class stack{
+//     LinkedList l;
+//     public:
 
-    bool empty(){
-        if(l.empty()){
-            return 1;
-        }  
-        return 0;
-    }
+//     bool empty(){
+//         if(l.empty()){
+//             return 1;
+//         }  
+//         return 0;
+//     }
 
-    int top(){
-        if(l.empty()){
-            cout<<"Your stack is empty."<<endl;
-            return -1;
-        }
-        else{
-            return l.end();
-        }
+//     int top(){
+//         if(l.empty()){
+//             cout<<"Your stack is empty."<<endl;
+//             return -1;
+//         }
+//         else{
+//             return l.end();
+//         }
 
-    }
+//     }
 
-    void push(int value){
-        l.pushend(value);
-    }
+//     void push(int value){
+//         l.pushend(value);
+//     }
 
-    int pop(){
-        return l.popend();
-    }
+//     int pop(){
+//         return l.popend();
+//     }
 
-}
+// };
+
+
 
 int main(){
-
+  
 }
